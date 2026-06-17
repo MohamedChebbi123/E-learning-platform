@@ -1,0 +1,25 @@
+name: Docker Build
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Gateway
+        run: docker build -t gateway ./backend/api-gateway
+
+      - name: Build User Service
+        run: docker build -t user-service ./backend/services/user-service
+
+      - name: Build Course Service
+        run: docker build -t course-service ./backend/services/course-service
+
+      - name: Build Frontend
+        run: docker build -t frontend ./frontend/web

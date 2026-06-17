@@ -5,7 +5,8 @@ help:
 	@echo ""
 	@echo "Targets:"
 	@echo "  infra     Start infrastructure (PostgreSQL, RabbitMQ, Redis, MinIO, monitoring)"
-	@echo "  up        Start all services"
+	@echo "  up        Start all services (development)"
+	@echo "  staging   Start full staging environment (builds from source, all services in Docker)"
 	@echo "  down      Stop all services"
 	@echo "  frontend  Start frontend dev server"
 	@echo "  backend   Build all backend services"
@@ -19,8 +20,13 @@ infra:
 	docker compose up -d postgres rabbitmq redis minio prometheus grafana
 
 up:
-	@echo "Starting all services..."
+	@echo "Starting all services in development mode..."
 	docker compose up -d
+
+staging:
+	@echo "Starting staging environment..."
+	@echo "Uses docker-compose.yml (all services, builds from source)"
+	docker compose up -d --build
 
 down:
 	@echo "Stopping all services..."
