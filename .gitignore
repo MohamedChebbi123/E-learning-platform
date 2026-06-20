@@ -31,5 +31,3 @@ frontend/web/.turbo/
 # Docker
 docker-compose.override.yml
 
-# Monitoring
-infrastructure/monitoring/grafana/grafana.db

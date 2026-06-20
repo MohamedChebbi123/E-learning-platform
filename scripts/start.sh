@@ -6,7 +6,7 @@ echo "=== E-Learning Platform - Start ==="
 case "${1:-infra}" in
   infra)
     echo "Starting infrastructure services..."
-    docker compose up -d postgres rabbitmq redis minio prometheus grafana
+    docker compose up -d postgres rabbitmq redis minio
     ;;
   all)
     echo "Starting all services..."
@@ -22,7 +22,7 @@ case "${1:-infra}" in
     ;;
   *)
     echo "Usage: $0 {infra|all|frontend|backend}"
-    echo "  infra    - Start infrastructure (PostgreSQL, RabbitMQ, Redis, MinIO, monitoring)"
+    echo "  infra    - Start infrastructure (PostgreSQL, RabbitMQ, Redis, MinIO)"
     echo "  all      - Start everything"
     echo "  frontend - Start frontend dev server"
     echo "  backend  - Build all backend services"

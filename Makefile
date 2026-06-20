@@ -4,7 +4,7 @@ help:
 	@echo "E-Learning Platform - Makefile"
 	@echo ""
 	@echo "Targets:"
-	@echo "  infra     Start infrastructure (PostgreSQL, RabbitMQ, Redis, MinIO, monitoring)"
+	@echo "  infra     Start infrastructure (PostgreSQL, RabbitMQ, Redis, MinIO)"
 	@echo "  up        Start all services (development)"
 	@echo "  staging   Start full staging environment (builds from source, all services in Docker)"
 	@echo "  down      Stop all services"
@@ -17,7 +17,7 @@ help:
 
 infra:
 	@echo "Starting infrastructure..."
-	docker compose up -d postgres rabbitmq redis minio prometheus grafana
+	docker compose up -d postgres rabbitmq redis minio
 
 up:
 	@echo "Starting all services in development mode..."
