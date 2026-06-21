@@ -252,6 +252,21 @@ services:
     depends_on:
       - api-gateway
 
+  # frontend-dev:
+  #   build:
+  #     context: ./frontend/web
+  #     dockerfile: Dockerfile.dev
+  #   container_name: elearning-frontend-dev
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - ./frontend/web/src:/app/src
+  #     - ./frontend/web/public:/app/public
+  #   environment:
+  #     NEXT_PUBLIC_API_URL: http://localhost:8080
+  #   depends_on:
+  #     - api-gateway
+
 volumes:
   postgres-data:
   rabbitmq-data:
